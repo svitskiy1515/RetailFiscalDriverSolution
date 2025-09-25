@@ -2,8 +2,9 @@
 using DriverWindowsService.Persistence.Entities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using RetailFiscalDriver.Shared.Contracts;
+using Shared.Contracts.Abstractions;
 using Shared.Contracts.Enums;
+using Shared.Contracts.Models;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

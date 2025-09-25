@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using RetailFiscalDriver.Shared.Contracts;
+using Shared.Contracts.Abstractions;
+using Shared.Contracts.Models;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -7,8 +7,9 @@ using DriverWindowsService.Transport;
 using DriverWindowsService.Processing;
 using DriverWindowsService.Drivers;
 using DriverWindowsService.Handlers;
+using DriverWindowsService.Handlers.Commands;
 using DriverWindowsService.Persistence;
-using RetailFiscalDriver.Shared.Contracts;
+using Shared.Contracts.Abstractions;
 using System;
 using System.Configuration;
 namespace DriverWindowsService.Composition
@@ -32,16 +33,17 @@ namespace DriverWindowsService.Composition
             services.AddScoped<FiscalDbContext>();
             services.AddScoped<IFiscalStore, EfFiscalStore>();
             services.AddScoped<IIdempotencyStore, EfIdempotencyStore>();
+            
+            services.AddScoped<PingHandler>();
+            services.AddScoped<GetStatusHandler>();
+            services.AddScoped<SelfCheckHandler>();
 
-            // Processing: HandlerRegistry и PackageProcessor делаем SCOPED
-            services.AddScoped<HandlerRegistry>();
-            services.AddScoped<PackageProcessor>();
-          
             services.AddScoped<NonFiscalReceiptHandler>();
             services.AddScoped<FiscalReceiptHandler>();
             
             // Hosting
             services.AddSingleton<Worker>();
+            services.AddSingleton<SpoolWorker>();
 
             // Transport & processing
             services.AddSingleton<TcpJsonServer>();

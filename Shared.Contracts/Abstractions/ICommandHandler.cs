@@ -1,7 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Shared.Contracts.Models;
 
-namespace RetailFiscalDriver.Shared.Contracts;
+namespace Shared.Contracts.Abstractions;
 
 /// <summary>Обработчик конкретной команды внутри пакета.</summary>
 public interface ICommandHandler

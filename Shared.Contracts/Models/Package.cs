@@ -1,8 +1,8 @@
-﻿using Shared.Contracts.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Shared.Contracts.Enums;
 
-namespace RetailFiscalDriver.Shared.Contracts;
+namespace Shared.Contracts.Models;
 
 public sealed class Package
 {

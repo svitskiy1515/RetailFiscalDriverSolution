@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [ "PackageId", "Type", "Commands" ],
+  "properties": {
+    "PackageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Type": {
+      "type": "string",
+      "enum": [ "Fiscal", "NonFiscal", "System" ]
+    },
+    "TerminalId": { "type": "string" },
+    "BatchId": { "type": "string" },
+    "Commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [ "Name", "Args" ],
+        "properties": {
+          "Name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "Args": { "type": "object" }
+        }
+      }
+    }
+  }
+}

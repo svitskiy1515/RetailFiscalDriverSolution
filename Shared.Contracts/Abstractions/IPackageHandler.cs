@@ -1,7 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Shared.Contracts.Models;
 
-namespace RetailFiscalDriver.Shared.Contracts;
+namespace Shared.Contracts.Abstractions;
 
 /// <summary>Обработчик всего пакета (по типу пакета: "Fiscal", "NonFiscal"...)</summary>
 public interface IPackageHandler

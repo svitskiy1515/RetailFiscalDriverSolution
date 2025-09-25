@@ -1,4 +1,4 @@
-﻿namespace RetailFiscalDriver.Shared.Contracts;
+﻿namespace Shared.Contracts.Abstractions;
 
 public interface IJsonSerializer
 {

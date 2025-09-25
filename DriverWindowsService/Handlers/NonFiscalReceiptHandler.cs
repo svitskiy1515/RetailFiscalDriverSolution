@@ -1,8 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using RetailFiscalDriver.Shared.Contracts;
+using Shared.Contracts.Abstractions;
 using Shared.Contracts.Enums;
+using Shared.Contracts.Models;
 
 namespace DriverWindowsService.Handlers
 {

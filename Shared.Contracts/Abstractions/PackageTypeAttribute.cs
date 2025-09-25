@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RetailFiscalDriver.Shared.Contracts;
+namespace Shared.Contracts.Abstractions;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
 public sealed class PackageTypeAttribute : Attribute

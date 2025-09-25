@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace RetailFiscalDriver.Shared.Contracts;
+namespace Shared.Contracts.Models;
 
 public sealed class Command
 {
