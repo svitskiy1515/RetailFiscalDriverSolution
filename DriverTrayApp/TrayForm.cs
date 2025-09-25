@@ -1,9 +1,11 @@
+using DriverTrayApp.Properties;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.ServiceProcess;
 using System.Threading;
 using System.Windows.Forms;
-using DriverTrayApp.Properties;
 using Timer = System.Windows.Forms.Timer;
 
 namespace DriverTrayApp
@@ -25,6 +27,7 @@ namespace DriverTrayApp
             _menu.Items.Add("Остановить сервис", null, (s, e) => StopService());
             _menu.Items.Add("Перезапустить", null, (s, e) => RestartService());
             _menu.Items.Add(new ToolStripSeparator());
+            _menu.Items.Add("Открыть директорию логирования ", null, (s, e) => OpenFolderLogs());
             _menu.Items.Add("Выход", null, (s, e) =>
             {
                 _trayIcon.Visible = false;
@@ -46,6 +49,26 @@ namespace DriverTrayApp
             _statusTimer.Start();
 
             UpdateServiceStatus();
+        }
+
+        private void OpenFolderLogs()
+        {
+            try
+            {
+                string logDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+
+                if (!Directory.Exists(logDir))
+                {
+                    Directory.CreateDirectory(logDir);
+                }
+
+                Process.Start("explorer.exe", logDir);
+            }
+            catch (Exception ex)
+            {
+                // Здесь можно добавить логирование ошибки
+                Debug.WriteLine($"Ошибка при открытии папки логов: {ex.Message}");
+            }
         }
 
         private void UpdateServiceStatus()

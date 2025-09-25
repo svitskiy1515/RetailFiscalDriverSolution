@@ -53,7 +53,7 @@ public class DriverServiceHost : IDisposable
             // 2) Опционально — поднять WCF-host для RemoteDriverService (если ты хочешь self-host)
             try
             {
-                _wcfHost = new ServiceHost(typeof(DriverWindowsService.DriverWindowsService)); // укажи реальный тип
+                _wcfHost = new ServiceHost(typeof(ServiceHost)); // укажи реальный тип
                 _wcfHost.Open();
                 Log.Information("WCF host opened");
             }

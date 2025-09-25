@@ -19,27 +19,27 @@ namespace POS.Client
             
             var binding = new NetTcpBinding(SecurityMode.None);
             var address = new EndpointAddress("net.tcp://localhost:9000/RemoteDriverService");
-            var factory = new ChannelFactory<IRemoteDriverService>(binding, address);
-            var client = factory.CreateChannel();
+           // var factory = new ChannelFactory<IRemoteDriverService>(binding, address);
+           // var client = factory.CreateChannel();
 
-            var cmd = new SaleCommand { Amount = 123.45m };
-            var posCmd = new PosCommand
-            {
-                PosId = "POS01",
-                Command = cmd
-            };
+            //    var cmd = new SaleCommand { Amount = 123.45m };
+            //    var posCmd = new PosCommand
+            //    {
+            //        PosId = "POS01",
+            //        Command = cmd
+            //    };
 
-            var id = client.EnqueueCommand(posCmd);
-            Console.WriteLine($"Sent command {id}, waiting for result...");
+            //    var id = client.EnqueueCommand(posCmd);
+            //    Console.WriteLine($"Sent command {id}, waiting for result...");
 
-            PosCommandResult result = null;
-            while (result == null || !result.IsCompleted)
-            {
-                Thread.Sleep(200);
-                result = client.GetCommandResult(id);
-            }
+            //    PosCommandResult result = null;
+            //    while (result == null || !result.IsCompleted)
+            //    {
+            //        Thread.Sleep(200);
+            //        result = client.GetCommandResult(id);
+            //    }
 
-            Console.WriteLine($"Completed: {result.IsCompleted}, Error={result.Error.Result}, Turnover={client.GetTurnover("POS01")}");
+           // Console.WriteLine($"Completed: {result.IsCompleted}, Error={result.Error.Result}, Turnover={client.GetTurnover("POS01")}");
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }

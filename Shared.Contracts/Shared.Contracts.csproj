@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <AssemblyName>Shared.Contracts</AssemblyName>
-    <RootNamespace>Shared.Contracts</RootNamespace>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <LangVersion>9</LangVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.ServiceModel" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.*" />
   </ItemGroup>
 </Project>
